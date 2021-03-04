@@ -1,5 +1,5 @@
 /**
-宠汪汪邀请助力与赛跑助力脚本，感谢github@Zero-S1提供帮助
+宠汪汪邀请助力与赛跑助力脚本，感谢github@Zero-S1提供帮助 178
 更新时间：2021-2-19（宠汪汪助力更新Token的配置正则表达式已改）
 活动入口：京东APP我的-更多工具-宠汪汪
 token时效很短，几个小时就失效了,闲麻烦的放弃就行
@@ -46,9 +46,9 @@ const $ = new Env('宠汪汪赛跑');
 const JD_BASE_API = `https://draw.jdfcloud.com//pet`;
 //此处填入你需要助力好友的京东用户名
 //下面给出好友邀请助力的示例填写规则
-let invite_pins =["wdwMJcEGPKgMlq","niujie678","hajiuhajiu2733","wdovJvWPLhUUqC","jd_4a2a4cee61c9e","q2705322732","wdfxtlDMXHbaHu","wdaABrvfJIjgOl","hajiuhajiu2067","18939824134_p","jd_441027f2a1e0d","jd_747fca41dbd0a","niujie4969","wdBJFgWzHaTGou","jd_gOtBAmRJxrDT","jd_45f1857040ac8","13335032760_p","jd_51d9ee19241e2","wdwMJcEGPKgMlq","Cindyui","ravenliangw","jd_5a069959eb8b9","nicolej18","碧落涛声","jd_RNSPYuSOvgWv","zhiguang217"];
+let invite_pins =["wdwMJcEGPKgMlq","niujie678","hajiuhajiu2733","wdovJvWPLhUUqC","jd_4a2a4cee61c9e","q2705322732","jd_586f24d2da48d","wdfxtlDMXHbaHu","wdaABrvfJIjgOl","hajiuhajiu2067","18939824134_p","jd_586f24d2da48d","jd_441027f2a1e0d","jd_747fca41dbd0a","niujie4969","wdBJFgWzHaTGou","jd_gOtBAmRJxrDT","jd_45f1857040ac8","13335032760_p","jd_51d9ee19241e2","wdwMJcEGPKgMlq","Cindyui","ravenliangw","jd_5a069959eb8b9","nicolej18","碧落涛声","jd_RNSPYuSOvgWv","zhiguang217"];
 //下面给出好友赛跑助力的示例填写规则
-let run_pins = [ "niujie678"];
+let run_pins = [ ""];
 let temp = run_pins[0].split(',')
 let fixPins = temp.splice(temp.indexOf('niujie678'), 1);
 fixPins.push(...temp.splice(temp.indexOf('niujie678'), 1));
@@ -171,9 +171,11 @@ async function getToken() {
     $.done()
   }
 }
+//http://jd.turinglabs.net/api/v2/jd/joy/read/1/
+//https://raw.githubusercontent.com/hajiuhajiu/jdsign1112/master/backUp/joytoken.json
 function readToken() {
   return new Promise(resolve => {
-    $.get({url: `http://jd.turinglabs.net/api/v2/jd/joy/read/1/`, 'timeout': 10000}, (err, resp, data) => {
+    $.get({url: `https://raw.githubusercontent.com/hajiuhajiu/jdsign1112/master/backUp/joytoken.json`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
